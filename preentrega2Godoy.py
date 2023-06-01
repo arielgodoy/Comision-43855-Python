@@ -52,7 +52,6 @@ class Cliente(Persona):
         return self.direccion
 
 
-
 personaactiva = Persona("Ariel Godoy","11.111.111-1")
 print(str(personaactiva))
 personaactiva.setRut('13.135.401-0')
