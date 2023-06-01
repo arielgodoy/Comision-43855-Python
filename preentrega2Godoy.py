@@ -1,3 +1,6 @@
+import sys
+from itertools import cycle
+
 class Persona:    
     nombre = ''
     rut = ''     
@@ -7,7 +10,7 @@ class Persona:
         self.rut = rut   
     #ToString()
     def __str__(self):
-        return f'Nombre: {self.nombre},RUT: {self.rut}'   
+        return f'Nombre: {self.nombre},RUT: {self.rut} '   
     
     #setters clase Persona    
     def setNombre(self, Nombre):
@@ -25,6 +28,9 @@ class Persona:
     #Metodo nombre y Rut de la Clase Persona    
     def NombreyRut (self):        
         return self.nombre + ', ' + self.rut
+    
+      
+    
 
 #Clase Cliente hereda de la Clase persona
 class Cliente(Persona):
@@ -52,14 +58,50 @@ class Cliente(Persona):
         return self.direccion
 
 
+def validarRut(rut):
+	rut = rut.upper();
+	rut = rut.replace("-","")
+	rut = rut.replace(".","")
+	aux = rut[:-1]
+	dv = rut[-1:]
+ 
+	revertido = map(int, reversed(str(aux)))
+	factors = cycle(range(2,8))
+	s = sum(d * f for d, f in zip(revertido,factors))
+	res = (-s)%11
+ 
+	if str(res) == dv:
+		return True
+	elif dv=="K" and res==10:
+		return True
+	else:
+		return False
+
+
+
+
 personaactiva = Persona("Ariel Godoy","11.111.111-1")
 print(str(personaactiva))
-personaactiva.setRut('13.135.401-0')
+
 print(str(personaactiva))
 clienteactivo=Cliente("Ariel Godoy","11.111.111-1","Avda. Los Heroes #12345","2023-05-31")
 
-clienteactivo.setRut('22.222.222-2')
-print(str(clienteactivo))
+rut='23.222.222-2'
+if validarRut(rut):
+    clienteactivo.setRut(rut)
+    print(str(clienteactivo))
+rut='34.333.333-3'
+if validarRut(rut):
+    clienteactivo.setRut(rut)
+    print(str(clienteactivo))
+
+rut='45.444.444-4'
+if validarRut(rut):
+    clienteactivo.setRut(rut)
+    print(str(clienteactivo))
+
+
+
 
 
 
