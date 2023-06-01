@@ -29,8 +29,6 @@ class Persona:
     def NombreyRut (self):        
         return self.nombre + ', ' + self.rut
     
-      
-    
 
 #Clase Cliente hereda de la Clase persona
 class Cliente(Persona):
@@ -43,7 +41,7 @@ class Cliente(Persona):
         self.fechaingreso =fechaingreso
     #ToString()
     def __str__(self):
-        return super().__str__() + f"Direccion: {self.direccion},Fecha de Ingreso: {self.fechaingreso}"       
+        return "Datos de " + super().__str__() + f"Direccion: {self.direccion},Fecha de Ingreso: {self.fechaingreso}"       
     
     #setters clase Cliente    
     def setfechaingreso(self, fechaingreso):
@@ -63,13 +61,11 @@ def validarRut(rut):
 	rut = rut.replace("-","")
 	rut = rut.replace(".","")
 	aux = rut[:-1]
-	dv = rut[-1:]
- 
+	dv = rut[-1:] 
 	revertido = map(int, reversed(str(aux)))
 	factors = cycle(range(2,8))
 	s = sum(d * f for d, f in zip(revertido,factors))
-	res = (-s)%11
- 
+	res = (-s)%11 
 	if str(res) == dv:
 		return True
 	elif dv=="K" and res==10:
@@ -86,16 +82,16 @@ print(str(personaactiva))
 print(str(personaactiva))
 clienteactivo=Cliente("Ariel Godoy","11.111.111-1","Avda. Los Heroes #12345","2023-05-31")
 
-rut='23.222.222-2'
+rut='22.222.222-2'
 if validarRut(rut):
     clienteactivo.setRut(rut)
     print(str(clienteactivo))
-rut='34.333.333-3'
+rut='33.333.333-3'
 if validarRut(rut):
     clienteactivo.setRut(rut)
     print(str(clienteactivo))
 
-rut='45.444.444-4'
+rut='44.444.444-4'
 if validarRut(rut):
     clienteactivo.setRut(rut)
     print(str(clienteactivo))
