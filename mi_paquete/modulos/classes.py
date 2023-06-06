@@ -1,6 +1,3 @@
-import sys
-from itertools import cycle
-
 class Persona:    
     nombre = ''
     rut = ''     
@@ -56,45 +53,29 @@ class Cliente(Persona):
         return self.direccion
 
 
-def validarRut(rut):
-	rut = rut.upper();
-	rut = rut.replace("-","")
-	rut = rut.replace(".","")
-	aux = rut[:-1]
-	dv = rut[-1:] 
-	revertido = map(int, reversed(str(aux)))
-	factors = cycle(range(2,8))
-	s = sum(d * f for d, f in zip(revertido,factors))
-	res = (-s)%11 
-	if str(res) == dv:
-		return True
-	elif dv=="K" and res==10:
-		return True
-	else:
-		return False
+### datos de prueba de la clase!! #####
 
 
 
+# personaactiva = Persona("Ariel Godoy","11.111.111-1")
+# print(str(personaactiva))
 
-personaactiva = Persona("Ariel Godoy","11.111.111-1")
-print(str(personaactiva))
+# print(str(personaactiva))
+# clienteactivo=Cliente("Ariel Godoy","11.111.111-1","Avda. Los Heroes #12345","2023-05-31")
 
-print(str(personaactiva))
-clienteactivo=Cliente("Ariel Godoy","11.111.111-1","Avda. Los Heroes #12345","2023-05-31")
+# rut='22.222.222-2'
+# if validarRut(rut):
+#     clienteactivo.setRut(rut)
+#     print(str(clienteactivo))
+# rut='33.333.333-3'
+# if validarRut(rut):
+#     clienteactivo.setRut(rut)
+#     print(str(clienteactivo))
 
-rut='22.222.222-2'
-if validarRut(rut):
-    clienteactivo.setRut(rut)
-    print(str(clienteactivo))
-rut='33.333.333-3'
-if validarRut(rut):
-    clienteactivo.setRut(rut)
-    print(str(clienteactivo))
-
-rut='44.444.444-4'
-if validarRut(rut):
-    clienteactivo.setRut(rut)
-    print(str(clienteactivo))
+# rut='44.444.444-4'
+# if validarRut(rut):
+#     clienteactivo.setRut(rut)
+#     print(str(clienteactivo))
 
 
 
