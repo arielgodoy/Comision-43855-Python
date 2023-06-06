@@ -1,0 +1,8 @@
+README.md
+setup.py
+Paquete_pre_entrega_2.egg-info/PKG-INFO
+Paquete_pre_entrega_2.egg-info/SOURCES.txt
+Paquete_pre_entrega_2.egg-info/dependency_links.txt
+Paquete_pre_entrega_2.egg-info/top_level.txt
+mi_paquete/__init__.py
+mi_paquete/main.py
